@@ -1,0 +1,3 @@
+# The downloaded key is a LIVE secret — never commit it.
+ga4-credentials.json
+.env
