@@ -1,0 +1,6 @@
+# Local secrets / env — never commit if you add them later.
+.env
+
+# Supabase CLI local state, if the CLI is ever used here.
+supabase/.temp/
+supabase/.branches/

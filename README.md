@@ -8,6 +8,8 @@ the code — your instructor will tell you which folder to use, and Claude does 
 - **`class-2-dashboard/`** — building a dashboard from your website's analytics.
   - `ga4-student-kit/` — connects Claude to your Google Analytics (read-only). Start with
     its `START_HERE.md`.
+  - `supabase-student-kit/` — connects Claude to your Supabase database (build tables,
+    migrations, functions). Start with its `START_HERE.md`.
 
 ## How students use this
 
