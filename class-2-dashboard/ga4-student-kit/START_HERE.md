@@ -6,8 +6,8 @@ data for you. **You don't need to know anything technical.** Claude does all of 
 ## What to do
 
 1. Make a new empty folder for your dashboard project (e.g. `my-dashboard`) — save it
-   right next to your Class 1 website folder so they live together — and open it in
-   **VS Code**.
+   right next to your Class 1 website folder so they live together — and open it in a
+   **new VS Code window** (File → New Window, then open the folder).
 2. Open **Claude Code** in that folder.
 3. Copy/paste this one message to Claude:
 
