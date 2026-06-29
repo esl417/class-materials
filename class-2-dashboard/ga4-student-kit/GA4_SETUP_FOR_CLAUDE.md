@@ -167,22 +167,28 @@ the exact code in **SCRIPTS.md** (in this folder). Then run:
 GA4_PROPERTY_ID=<their number> node discover.mjs
 ```
 
-This prints every **dimension**, **metric**, and recent **event** their property exposes.
-Read that output yourself — it's the menu of what you can query. Then summarize it for the
-human in plain language: how many things are trackable, and a few interesting examples.
+If this command **runs without an auth/permission error**, your access is working — that
+is the real success signal, *regardless of whether any numbers come back yet*. Read the
+output yourself: it's the menu of dimensions/metrics/events you can query.
 
-Pull a first real result so they see it working, e.g.:
+Try a quick read too:
 
 ```bash
 GA4_PROPERTY_ID=<their number> node query.mjs '{"dateRanges":[{"startDate":"7daysAgo","endDate":"yesterday"}],"dimensions":[{"name":"eventName"}],"metrics":[{"name":"eventCount"}]}'
 ```
 
-Then tell them they're done, and that they can now just ask you questions like *"how many
-people visited last week?"* and you'll pull the answer.
+> **Expect empty / zero results if they just installed their Google tag.** Google
+> Analytics can take **up to ~48 hours** to start sharing collected data through this API,
+> and longer to backfill. An empty result here is **normal and not a failure** — it does
+> NOT mean the setup is broken.
 
-> If the events list is empty: their property is brand new or has no traffic yet. That's
-> normal — reassure them; the schema is still correct and data will appear within ~24h of
-> their site getting visitors.
+**How to report this to the human — be careful not to alarm them:**
+
+- If you got real rows back: tell them it's working and they can ask you data questions now.
+- If rows are empty/zero: tell them the connection is confirmed and working, that Google
+  just hasn't shared the data yet (normal, up to ~2 days), and that in a few days they
+  should ask you something like *"how many people visited last week?"* — once a real number
+  comes back, they're fully set. **Do not imply anything is wrong.**
 
 ---
 
@@ -224,10 +230,11 @@ Read the actual error yourself; match it here; tell the human only the friendly 
 ## What "done" looks like
 
 - `ga4-credentials.json` exists in this folder (a working read-only key).
-- `node discover.mjs` prints the property's dimensions/metrics/events.
-- You can answer the human's plain-English questions by translating them into
-  `query.mjs` reports.
+- `node discover.mjs` runs **without an auth/permission error** — that confirms access.
+  (Empty or zero data is fine; Google can take up to ~48h to share it.)
 - You saved the setup (property id, credential path, how to query) to your memory
   (Step 5.5), so a future session can answer data questions immediately.
+- You told the human, without alarming them, that access is confirmed and to re-ask you a
+  data question in a few days once Google has shared the data.
 
 You never asked them to type a command or read code. You paused only at the 🙋 steps.
