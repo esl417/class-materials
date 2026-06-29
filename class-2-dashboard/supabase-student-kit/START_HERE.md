@@ -33,6 +33,9 @@ browser when you start.
 
 > Three things you do by hand: **restart the app once**, **reopen the same chat from the
 > 🕐 history**, and **click Authorize once.** That's all.
+>
+> 💡 If the Claude box disappears after you reopen the app, just **click any file** in your
+> project on the left and it'll come right back.
 
 ## What this does
 

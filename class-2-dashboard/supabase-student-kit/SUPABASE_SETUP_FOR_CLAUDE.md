@@ -93,6 +93,9 @@ restart the app and reopen this conversation themselves. (If they start a brand-
 instead, you'll have lost this context; in that case have them reopen the prior chat from
 the 🕐 history, or just re-read this file and continue from Step 4.)
 
+> If they say the Claude box / Anthropic logo vanished after reopening the app, tell them:
+> *"Just click any file in your project on the left — the Claude panel comes right back."*
+
 > Claude, after the restart: re-read this file, confirm the plugin is enabled
 > (`claude plugin list` shows `supabase ... ✔ enabled`), and confirm the MCP server now
 > appears (`claude mcp list` shows `plugin:supabase:supabase`). Then continue to Step 4.
