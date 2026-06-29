@@ -186,6 +186,26 @@ people visited last week?"* and you'll pull the answer.
 
 ---
 
+## Step 5.5 — Save the setup to your memory (you do this)
+
+So that future sessions can answer the human's data questions without redoing any of
+this, **record how to query this property in your persistent memory** (e.g. a project
+memory / `CLAUDE.md` entry — whatever memory mechanism you have in this environment).
+Save these facts:
+
+- This project has **read-only GA4 access** set up. Credentials are in
+  `./ga4-credentials.json` (a live secret — never print, commit, or paste it).
+- The **numeric GA4 Property ID** is `<their number>` (from Step 4).
+- To query their analytics: run `GA4_PROPERTY_ID=<number> node query.mjs '<runReport JSON>'`
+  from this folder. Run `discover.mjs` first to get exact dimension/metric names — don't
+  guess them. See `SCRIPTS.md` for the report shape.
+- The access is **read-only / Viewer** — you can read their data, never modify it.
+
+Then tell the human, in plain language, that you've remembered their setup so next time
+they can just ask a question and you'll pull the answer straight away.
+
+---
+
 ## Step 6 — Troubleshooting (read the matching case, then act)
 
 Read the actual error yourself; match it here; tell the human only the friendly version.
@@ -207,5 +227,7 @@ Read the actual error yourself; match it here; tell the human only the friendly 
 - `node discover.mjs` prints the property's dimensions/metrics/events.
 - You can answer the human's plain-English questions by translating them into
   `query.mjs` reports.
+- You saved the setup (property id, credential path, how to query) to your memory
+  (Step 5.5), so a future session can answer data questions immediately.
 
 You never asked them to type a command or read code. You paused only at the 🙋 steps.
