@@ -1,0 +1,23 @@
+# Wrangler config for the routing Worker — CLASS 3 REFERENCE TEMPLATE
+#
+# Claude: use this as the template. Change "yourdomain.com" (two places) to the
+# student's real domain. Keep the ROUTE binding exactly as written.
+#
+# WHY A ROUTE, NOT A CUSTOM DOMAIN (this is the #1 thing that breaks the build):
+# A `route` runs the Worker IN FRONT OF the existing DNS record that points at
+# the human site (Vercel, etc.), so `fetch(request)` for humans/Google still has
+# a real origin to reach. A `custom_domain = true` binding would DELETE that
+# record and make the Worker itself the origin — leaving human traffic with
+# nowhere to go, and the site breaks. Always use the route form below.
+#
+# Prerequisite: the student's domain must already have a PROXIED (orange-cloud)
+# DNS record pointing at their human site — Cloudflare imported this when the
+# domain was added during the prereqs, so it's already there.
+
+name = "aso-router"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+routes = [
+  { pattern = "yourdomain.com/*", zone_name = "yourdomain.com" }
+]
