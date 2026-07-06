@@ -1,0 +1,28 @@
+# .vercelignore — CLASS 3 REFERENCE TEMPLATE
+#
+# Goes in the ROOT of your project (next to package.json). This is the file
+# that keeps the dual-web split clean on the Vercel side.
+#
+# WHY IT MATTERS: your human site deploys to Vercel; your bot surface (the llm/
+# folder) is served by Cloudflare Pages, and the Worker source (infra/) is a
+# deploy artifact — NEITHER should be bundled into the Vercel human-site deploy.
+# Without this file, Vercel may try to include or serve those folders, muddying
+# the separation the dual-web architecture depends on. Listing them here makes
+# Vercel ignore them entirely.
+#
+# Claude: copy this to the project root. Keep the /llm/ and /infra/ lines — they
+# are the load-bearing ones. Add any other build/tooling folders the project has.
+
+# Bot surface — served by Cloudflare Pages, NOT Vercel
+/llm/
+
+# Cloudflare Worker source — a deploy artifact, not human-site web content
+/infra/
+
+# Internal tooling / config / docs (never part of the deployed human site)
+/.claude/
+/scripts/
+/logs/
+
+# Reference/planning docs
+/ARCHITECTURE.md
