@@ -1,0 +1,12 @@
+# _headers — CLASS 3 REFERENCE TEMPLATE (goes in your llm/ folder)
+#
+# Cloudflare Pages applies these security headers to every page of the bot
+# surface. Pages's build-output directory is set to llm/, so it only ever sees
+# what's in that folder. Copy this file to llm/_headers as-is — it's safe,
+# generic, and needs no per-site changes.
+
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
