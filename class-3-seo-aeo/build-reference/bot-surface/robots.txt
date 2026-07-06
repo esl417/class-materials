@@ -1,0 +1,12 @@
+# robots.txt — CLASS 3 REFERENCE TEMPLATE (goes in your llm/ folder)
+#
+# The bot surface is OPEN to all crawlers — that's the whole point. This file
+# lets everyone in and points to your sitemap.
+#
+# Claude: copy to llm/robots.txt. Change the Sitemap line to the student's real
+# APEX domain (their human URL — NOT the .pages.dev address).
+
+User-agent: *
+Allow: /
+
+Sitemap: https://yourdomain.com/sitemap.xml
