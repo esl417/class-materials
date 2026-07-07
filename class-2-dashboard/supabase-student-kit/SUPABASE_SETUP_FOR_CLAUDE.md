@@ -80,13 +80,15 @@ yet** — and that's the #1 thing that trips people up. Read Step 3 carefully.
 plugin mid-session, its Supabase tools and the `/mcp` connection will NOT appear until the
 session is restarted. This is expected, not a bug.
 
-Tell the human, plainly:
+Tell the human, plainly (and point them at the visual walkthrough — this is the step
+people get stuck on):
 
 > "I just installed the Supabase tools, but they only switch on when Claude Code restarts.
 > Please **fully quit Claude Code and open it again in this same folder.** When it reopens,
 > click the **🕐 clock icon at the top-right of the Claude box** to open your conversation
 > history, and pick *this* chat so I remember where we were — then say *continue the
-> Supabase setup.*"
+> Supabase setup.* Here's a short visual of exactly how to get back into this chat:
+> **https://class-1-deck.vercel.app/class-2-dashboard-build/prereqs.html#restart**"
 
 Wait for them to restart and return. **You cannot do this step for them** — they must
 restart the app and reopen this conversation themselves. (If they start a brand-new chat

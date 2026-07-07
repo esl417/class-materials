@@ -30,20 +30,72 @@ cannot read code. Never ask them to run a command or edit a file.
 
 ---
 
-## Step 0 — Confirm Supabase access (you do this silently)
+## Step 0 — Confirm Supabase access — and if it's missing, set it up yourself
 
-This kit assumes the human already connected their Supabase project to you via the
-**supabase-student-kit** (the Supabase MCP tools: `list_tables`, `apply_migration`,
-`execute_sql`, etc.).
+This kit needs a live connection to the human's Supabase project (the Supabase MCP
+tools: `list_tables`, `apply_migration`, `execute_sql`, etc.), normally established by
+the **supabase-student-kit**. **Many students skip that prereq and come straight here.
+That is fine and expected — when it happens, you do the connection setup for them
+automatically. Do not send them away to "go do the other kit first"; go get it and run
+it yourself.**
 
-1. Check whether the Supabase MCP tools are available to you and run `list_tables` on
-   their project to confirm the connection works.
-2. **If the tools are missing or fail:** stop and tell the human, kindly, that they
-   need to do the Supabase setup kit first (`supabase-student-kit/START_HERE.md` from
-   the same class materials), then come back to this one.
+1. Look at your available tools for the Supabase MCP tools (`list_tables`,
+   `apply_migration`, `execute_sql`). If they're present, run `list_tables` once to
+   confirm the connection actually works. If it works → skip to Step 1.
 
-If `list_tables` shows the `ga4_*` tables already exist, that's fine — the seed step
-below is safe to re-run and will refresh the data.
+2. **If those tools are NOT in your toolset, or `list_tables` errors with an
+   auth/connection problem — the prereq wasn't done. Handle it yourself, inline, now:**
+
+   a. Tell the human, warmly and briefly, what's happening — no jargon, no blame:
+      > "Quick heads-up: before I can build your practice data, I need to connect to
+      > your Supabase account. That's a one-time setup and I'll walk us through it right
+      > now — you'll just click a couple of things when I ask."
+
+   b. **Fetch the connection kit yourself** from the class materials repo and follow it
+      as your runbook — do NOT ask the human to paste anything to get it. Read:
+      `https://github.com/esl417/class-materials` →
+      `class-2-dashboard/supabase-student-kit/SUPABASE_SETUP_FOR_CLAUDE.md`
+      (raw:
+      `https://raw.githubusercontent.com/esl417/class-materials/main/class-2-dashboard/supabase-student-kit/SUPABASE_SETUP_FOR_CLAUDE.md`).
+      Use your web-fetch / file tools to pull it in. If you truly cannot fetch it, then
+      and only then fall back to asking the human to paste the setup-kit prompt.
+
+   c. **Run that setup runbook end to end**, doing every step you can do yourself
+      (installing the `supabase` plugin, wiring the MCP server). Pause ONLY at the
+      genuine human moments, one at a time, and wait each time:
+      - **Making a Supabase account / empty project** — they may already have one; ask
+        first. If not, walk them through supabase.com → sign in → New project (save the
+        DB password). This is theirs to do in the browser.
+      - **Restarting Claude Code** (the plugin's tools only load on restart) — see the
+        restart handling just below; this is the step people get stuck on.
+      - **Clicking "Authorize"** in the Supabase browser page (OAuth — no token to
+        paste), choosing the project for this class.
+
+   d. **The restart hand-off (do this carefully — it's where students get lost).** When
+      the setup kit tells you to have them restart, say something like:
+      > "Now I need you to fully **quit Claude Code and open it again** in this same
+      > folder — the Supabase tools only switch on after a restart. The one tricky part
+      > is getting back into *this* conversation so I remember where we are. Here's a
+      > short visual walkthrough of exactly how — follow the slide on screen:
+      > **https://class-1-deck.vercel.app/class-2-dashboard-build/prereqs.html#restart**
+      >
+      > In short: after it reopens, click the **🕐 clock icon at the top-right** of the
+      > Claude box to open your conversation history, pick **this** chat, and type
+      > **'continue the dummy-data setup.'** (If the Claude panel vanishes, click any
+      > file on the left and it comes back.)"
+
+   e. **After they restart and return**, re-check the MCP tools (they should now be
+      present and authorized), finish any remaining setup-kit steps, then **continue
+      straight into Step 1 of THIS kit** — build the tables and seed the data. Don't make
+      them re-paste the dummy-data prompt; you're already on it.
+
+   Throughout: never show raw errors, never ask them to run terminal commands or edit
+   files, and don't spin — if a step needs a human click, ask for that one click and
+   wait.
+
+If `list_tables` succeeds but the project is empty (no user tables), that's perfect —
+you're connected, just continue to Step 1. If it shows the `ga4_*` tables already exist,
+that's also fine — the seed step below is safe to re-run and will refresh the data.
 
 ---
 
