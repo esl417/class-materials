@@ -3,6 +3,12 @@
 Student materials for the classes. Each class has its own folder. You don't need to read
 the code — your instructor will tell you which folder to use, and Claude does the rest.
 
+## For every class
+
+- **`claude-permissions-kit/`** — pre-approves the safe, everyday commands we use in
+  class so Claude Code stops asking permission for them (risky things still ask). Works
+  for all classes. Start with its `START_HERE.md`.
+
 ## Classes
 
 - **`class-2-dashboard/`** — building a dashboard from your website's analytics.
