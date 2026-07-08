@@ -8,6 +8,8 @@ briefly in plain English; never ask them to edit a file or run a command.
 Merge the allowlist below into the student's **global** Claude Code settings at
 `~/.claude/settings.json`, so safe everyday commands stop triggering permission prompts
 in every project. Global, not project-level — students create a new folder per class.
+Never write to the project's `.claude/settings.json` or `.claude/settings.local.json`,
+even if the current folder already has a `.claude/` directory.
 
 ## Steps
 

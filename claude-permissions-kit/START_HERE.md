@@ -15,7 +15,9 @@ internet, deploying — will **still ask you first**. That's on purpose.
 
    > **"Grab the permissions kit from https://github.com/esl417/class-materials (the files
    > in `claude-permissions-kit`), then read PERMISSIONS_SETUP_FOR_CLAUDE.md and do what
-   > it says for me. I'm not technical — handle it yourself and tell me when it's done."**
+   > it says for me. Install it globally — in my `~/.claude/settings.json`, not this
+   > project's settings — so it works in every project. I'm not technical — handle it
+   > yourself and tell me when it's done."**
 
 3. That's it. Takes under a minute. It works in **every** project from now on, not just
    this folder.
