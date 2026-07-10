@@ -63,7 +63,6 @@ Append these to `permissions.allow`:
   "Bash(npm run:*)",
   "Bash(npm test:*)",
   "Bash(node --version)",
-  "Bash(npx impeccable:*)",
   "Bash(npx serve:*)",
   "Bash(python3 -m http.server:*)",
   "Bash(vercel dev)",
