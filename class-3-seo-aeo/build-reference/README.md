@@ -17,6 +17,7 @@ out the classic first-time-build bugs.
 | `.vercelignore` | project **root** | Keeps `/llm/` and `/infra/` **out** of the Vercel human-site deploy, so the two surfaces stay cleanly separated. |
 | `bot-surface/_headers` | your `llm/` folder | Security headers Cloudflare Pages applies to the bot surface. Copy as-is. |
 | `bot-surface/robots.txt` | your `llm/` folder | Opens the bot surface to all crawlers + points to the sitemap. Change the domain. |
+| `../content-guide/AEO_CONTENT_GUIDE.md` | project **root** | The writing standard for every bot page. **Copy it into the project** — the student keeps writing bot pages long after class, and this is what tells Claude how. |
 
 ## The platform split (the mental model these files enforce)
 
@@ -41,10 +42,36 @@ on each other:
 3. `.vercelignore` → project **root**. Keep the `/llm/` and `/infra/` lines.
 4. `bot-surface/_headers` → `llm/_headers` (as-is). `bot-surface/robots.txt` →
    `llm/robots.txt` (change the Sitemap domain to the human apex URL).
-5. Deploy: `wrangler pages deploy ./llm` for the bot surface, `wrangler deploy`
+5. **`AEO_CONTENT_GUIDE.md` → project root, and wire it in (see below).** This is
+   not a one-time read — the student writes bot pages for as long as they own the
+   site, so the standard has to live *in the project*, not in this repo.
+6. Deploy: `wrangler pages deploy ./llm` for the bot surface, `wrangler deploy`
    for the Worker.
-6. Verify with the three-request routing test (GPTBot / normal browser /
+7. Verify with the three-request routing test (GPTBot / normal browser /
    Googlebot). Googlebot MUST match the human result — that's the cloaking check.
+
+## Make the AEO standard permanent (don't skip this)
+
+Copying the guide isn't enough — a future Claude session won't know to open it.
+**Add a rule to the project's `CLAUDE.md`** (create it if there isn't one) so the
+standard fires automatically on every future session, with no prompt from the
+student:
+
+```markdown
+## Bot surface (llm/)
+
+- Anything in `llm/` is the AI/bot version of the site. When writing or updating
+  ANY file in `llm/`, follow `AEO_CONTENT_GUIDE.md` in the project root — it is
+  the writing standard for those pages. Read it first; don't write from memory.
+- Never apply the AEO guide to the human site. It governs `llm/` only.
+- When a page on the human site is added or changed, update its matching page in
+  `llm/` to match, then redeploy the bot surface.
+```
+
+Why this matters: the class ships a *loop* (get a brief → write the pages →
+grade with `/seo geo` → repeat, a few pages a week), not a one-off build. Without
+the `CLAUDE.md` rule, every one of those future sessions starts from zero and
+Claude writes marketing copy into `llm/` instead of answer-first AEO content.
 
 The reference `worker.js` is deliberately **stripped of analytics/beacon wiring**
 — pure routing, easy to read, can't leak anything. Bot-hit analytics is an
