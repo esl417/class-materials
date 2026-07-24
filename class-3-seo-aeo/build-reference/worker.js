@@ -7,7 +7,7 @@
  *
  * Claude: use this as the template. The ONLY thing you must change is the one
  * marked PAGES_URL below — set it to the *.pages.dev URL from the Pages deploy.
- * Everything else works as-is. Keep the three bot lists as they are unless you
+ * Everything else works as-is. Keep the four bot lists as they are unless you
  * have a specific reason to add a crawler (Cloudflare's AI Crawl Control
  * dashboard is the reference for new AI bot user-agents).
  *
@@ -18,8 +18,11 @@
  * those two things.
  */
 
-// 🔧 THE ONE THING TO SET: your Cloudflare Pages URL (from `wrangler pages deploy`).
-// It looks like https://your-project-name.pages.dev — no trailing slash.
+// 🔧 THE ONE THING TO SET: your Cloudflare Pages URL. It's the *.pages.dev
+// address of the Pages project you connected to GitHub (Workers & Pages → your
+// Pages project → its URL). It looks like https://your-project-name.pages.dev —
+// no trailing slash. The bot surface auto-deploys there on every git push; this
+// Worker just proxies AI crawlers to it.
 const PAGES_URL = 'https://YOUR-PAGES-PROJECT.pages.dev';
 
 export default {
@@ -59,18 +62,26 @@ export default {
       'duckassistbot',     // DuckDuckGo Assist (AI)
       'you-com-bot',       // You.com AI
       'anthropic-ai',      // Anthropic generic
-      // Social preview crawlers (fine to serve the clean version to)
-      'facebookbot',
-      'meta-externalagent',
-      'meta-externalfetcher',
-      'twitterbot',
-      'linkedinbot',
       // Other AI / data crawlers
       'ccbot',             // Common Crawl (AI training)
       'bytespider',        // ByteDance
       'petalbot',          // Huawei AI
       'amazonbot',         // Amazon (AI training)
       'archive.org_bot',   // Internet Archive
+    ];
+
+    // ── Social preview crawlers ───────────────────────────────────────────────
+    // CRITICAL: these must get the SAME page as humans. They build the
+    // link-share preview card (title, description, image) from whatever page
+    // they fetch — so they must hit your real human site to pick up its designed
+    // OG preview image. Serving them the plain bot surface gives you an ugly,
+    // image-less unfurl. Do NOT move any of these into the AI list above.
+    const socialPreviewBots = [
+      'facebookbot',
+      'meta-externalagent',
+      'meta-externalfetcher',
+      'twitterbot',
+      'linkedinbot',
     ];
 
     // ── SEO tools ───────────────────────────────────────────────────────────
@@ -85,11 +96,14 @@ export default {
     const isTraditionalSearchBot = traditionalSearchBots.some(b => userAgent.includes(b));
     const isAISearchBot = aiSearchBots.some(b => userAgent.includes(b));
     const isSEOToolBot = seoToolBots.some(b => userAgent.includes(b));
+    const isSocialPreviewBot = socialPreviewBots.some(b => userAgent.includes(b));
 
     // ── Route AI crawlers + SEO tools → the bot-optimized Pages surface ───────
     // This is a pass-through fetch (a proxy), NOT a redirect: the visitor's URL
     // stays on your apex domain, and the .pages.dev origin never shows.
-    if (isAISearchBot || isSEOToolBot) {
+    // Social preview crawlers are excluded here on purpose — they fall through
+    // to the human site below so link-share cards use your real OG image.
+    if ((isAISearchBot || isSEOToolBot) && !isSocialPreviewBot) {
       return fetch(PAGES_URL + url.pathname, {
         method: request.method,
         headers: request.headers,
@@ -97,7 +111,10 @@ export default {
       });
     }
 
-    // ── Everyone else (humans + Google/Bing) → your real site, untouched ──────
+    // ── Everyone else (humans + Google/Bing + social preview crawlers) → real site ──
+    // Social preview crawlers (see socialPreviewBots above) land here on purpose:
+    // they generate link-share cards from your designed page and its OG preview
+    // image, not from the plain bot surface.
     // `fetch(request)` passes through to your apex origin (your human site,
     // e.g. Vercel, reached via the Cloudflare-proxied DNS record). Because this
     // Worker is bound with a ROUTE (not a Custom Domain), that origin record is
