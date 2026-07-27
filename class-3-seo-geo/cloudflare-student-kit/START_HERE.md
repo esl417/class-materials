@@ -1,6 +1,6 @@
 # Start Here 👋
 
-You're going to get your computer ready for Class 3 (SEO + AEO) by connecting Claude to
+You're going to get your computer ready for Class 3 (SEO + GEO) by connecting Claude to
 your Cloudflare account. **You don't need to know anything technical.** Claude does all
 of it.
 
@@ -17,7 +17,7 @@ buying one inside Cloudflare. Do that first, and confirm your site still loads n
 2. Copy/paste this message to Claude:
 
    > **"Grab the Cloudflare setup kit from https://github.com/esl417/class-materials (the
-   > files in `class-3-seo-aeo/cloudflare-student-kit`) into this project, then read
+   > files in `class-3-seo-geo/cloudflare-student-kit`) into this project, then read
    > CLOUDFLARE_SETUP_FOR_CLAUDE.md and do everything in it for me. I'm not technical —
    > handle all the setup yourself, and stop to tell me whenever you need me to click
    > something in my web browser."**

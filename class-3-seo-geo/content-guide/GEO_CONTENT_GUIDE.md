@@ -1,4 +1,4 @@
-# AEO Content Guide — how to write the AI/bot version of your pages
+# GEO Content Guide — how to write the AI/bot version of your pages
 
 > **What this is.** The reference that governs *how* the bot-surface pages should be
 > written so AI answer engines (ChatGPT, Perplexity, Google AI Mode) can read, trust, and
