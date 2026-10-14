@@ -1,6 +1,6 @@
 # Supabase Setup — Instructions for Claude Code
 
-> **Human: you don't need to understand any of this.** Open Claude Code in this folder,
+> **Human: you don't need to understand any of this.** Open this folder in the Claude app's Code tab,
 > give it this file, and say: **"Read this and do everything in it for me. Stop and tell
 > me whenever you need me to click something in my browser."** Claude does the rest.
 
@@ -74,9 +74,9 @@ yet** — and that's the #1 thing that trips people up. Read Step 3 carefully.
 
 ---
 
-## Step 3 — 🙋 HUMAN STEP: RESTART Claude Code (required — don't skip)
+## Step 3 — 🙋 HUMAN STEP: RESTART the Claude app (required — don't skip)
 
-**A plugin's tools only load when Claude Code starts up.** Because you just installed the
+**A plugin's tools only load when the Claude app starts up.** Because you just installed the
 plugin mid-session, its Supabase tools and the `/mcp` connection will NOT appear until the
 session is restarted. This is expected, not a bug.
 
@@ -92,7 +92,8 @@ people get stuck on):
 Wait for them to restart and return. **You cannot do this step for them** — they must
 restart the app and reopen this conversation themselves. (If they start a brand-new chat
 instead, you'll have lost this context; in that case have them reopen the prior chat from
-the list of past chats on the left, or just re-read this file and continue from Step 4.)
+the list of past chats on the left (if it isn't there, have them click the Code tab at
+the top first), or just re-read this file and continue from Step 4.)
 
 > Claude, after the restart: re-read this file, confirm the plugin is enabled
 > (`claude plugin list` shows `supabase ... ✔ enabled`), and confirm the MCP server now
@@ -158,7 +159,7 @@ Keep migrations as the source of truth so the student's project stays reproducib
 
 | What you see | What it means | What you do |
 |---|---|---|
-| `/mcp` doesn't list supabase, or tools missing after install | **Session wasn't restarted** (most common) | This is Step 3 — the human must fully quit and reopen Claude Code in this folder. Plugins load only at startup. |
+| `/mcp` doesn't list supabase, or tools missing after install | **Session wasn't restarted** (most common) | This is Step 3 — the human must fully quit and reopen the Claude app, then reopen this chat from the list on the left. Plugins load only at startup. |
 | `claude plugin list` shows supabase but no `✔ enabled` | Plugin installed but disabled | Run `claude plugin enable supabase@claude-plugins-official`, then restart the session. |
 | Server says "Needs authentication" | OAuth (Step 3) not completed | Trigger the auth flow again; make sure they clicked **Authorize** and picked the right project. |
 | Authorized the wrong project/org | Picked wrong one in the browser | Re-run the auth flow and choose the correct organization/project. |

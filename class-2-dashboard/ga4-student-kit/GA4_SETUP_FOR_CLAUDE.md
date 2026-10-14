@@ -1,7 +1,7 @@
 # GA4 Setup — Instructions for Claude Code
 
-> **Human: you don't need to understand any of this.** Open Claude Code in an empty
-> folder, give it this file, and say: **"Read this and do everything in it for me. Stop
+> **Human: you don't need to understand any of this.** Open an empty folder in the Claude
+> app's Code tab, give it this file, and say: **"Read this and do everything in it for me. Stop
 > and tell me whenever you need me to click something."** That's all you have to do.
 > Claude will handle the rest and pause for you at the two moments a human is required.
 
@@ -53,8 +53,9 @@ Run these and handle problems yourself:
    - macOS with Homebrew: `brew install --cask google-cloud-sdk`
    - Then load it into the current shell if needed:
      `. "$(brew --prefix)/share/google-cloud-sdk/path.bash.inc"` (ignore if not found).
-   - If `gcloud` still isn't found, ask the human to fully close and reopen their terminal
-     app, then continue.
+   - If `gcloud` still isn't found, ask the human to fully quit and reopen the Claude app
+     (⌘Q on a Mac), click this chat in the Code tab's list on the left, and say
+     "continue the GA4 setup." Then continue.
 
 Don't narrate the technical details. Just get these working.
 

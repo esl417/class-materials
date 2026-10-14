@@ -33,6 +33,8 @@ browser when you start.
 
 > Three things you do by hand: **restart the app once**, **reopen the same chat from the
 > list on the left**, and **click Authorize once.** That's all.
+>
+> 💡 Don't see your chat after reopening? Click the **Code** tab at the top first.
 
 ## What this does
 

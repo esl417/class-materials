@@ -5,10 +5,9 @@ data for you. **You don't need to know anything technical.** Claude does all of 
 
 ## What to do
 
-1. Make a new empty folder for your dashboard project (e.g. `my-dashboard`) — save it
-   right next to your Class 1 website folder so they live together.
-2. In the Claude app's **Code** tab, start a **new session** (⌘N / Ctrl+N) and select
-   that folder.
+1. In the Claude app's **Code** tab, click **+ New session** (⌘N / Ctrl+N).
+2. Choose **Local → Select folder**, go to the folder that holds your Class 1 website
+   folder, click **New Folder**, name it `my-dashboard`, and open it.
 3. Copy/paste this one message to Claude:
 
    > **"Grab the GA4 setup kit from https://github.com/esl417/class-materials (the files in

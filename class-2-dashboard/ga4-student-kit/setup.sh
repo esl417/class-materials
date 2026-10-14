@@ -45,7 +45,7 @@ if ! command -v gcloud >/dev/null; then
   fi
   command -v gcloud >/dev/null || die "" \
     "Installed the SDK but 'gcloud' still isn't on PATH in this shell." \
-    "Close and reopen the terminal, then re-run this script."
+    "Quit and reopen the Claude app (Cmd+Q on a Mac), reopen this chat, then re-run this script."
   ok "Google Cloud CLI installed"
 fi
 

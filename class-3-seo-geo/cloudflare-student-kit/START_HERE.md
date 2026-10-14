@@ -12,8 +12,9 @@ buying one inside Cloudflare. Do that first, and confirm your site still loads n
 
 ## What to do
 
-1. Open your **website project** in the Claude app's **Code** tab (the same folder from
-   Class 1 — where your site lives).
+1. In the Claude app's **Code** tab, start a **+ New session** (⌘N / Ctrl+N), choose
+   **Local → Select folder**, and pick your **website project** folder (the same folder
+   from Class 1 — where your site lives).
 2. Copy/paste this message to Claude:
 
    > **"Grab the Cloudflare setup kit from https://github.com/esl417/class-materials (the
@@ -24,9 +25,9 @@ buying one inside Cloudflare. Do that first, and confirm your site still loads n
 
 3. Partway through, Claude will ask you to **fully quit and reopen the Claude app once**
    (the Cloudflare tools only switch on after a restart). **This is the important part:**
-   when you reopen it, click the chat you were just in from the **list of past chats on
-   the left** — that's how Claude remembers where it was. Then say: **"continue the
-   Cloudflare setup."**
+   when you reopen it, click the **Code** tab, then the chat you were just in from the
+   **list of past chats on the left** — that's how Claude remembers where it was. Then
+   say: **"continue the Cloudflare setup."**
 
 4. Near the end, a **Cloudflare page opens in your browser** — sign in and click
    **Allow** once. Claude handles everything else.

@@ -1,7 +1,7 @@
 # Cloudflare Setup — Instructions for Claude Code
 
-> **Human: you don't need to understand any of this.** Open Claude Code in your website
-> project, give it this file, and say: **"Read this and do everything in it for me. Stop
+> **Human: you don't need to understand any of this.** Open your website project in the
+> Claude app's Code tab, give it this file, and say: **"Read this and do everything in it for me. Stop
 > and tell me whenever you need me to click something in my browser."** Claude does the rest.
 
 ---
@@ -24,7 +24,7 @@ Your three jobs today, in order:
 
 **Do everything yourself.** The human cannot use a terminal or read code. **Never ask them
 to run a command or edit a file.** The only things they do are marked **🙋 HUMAN STEP**:
-restarting Claude Code once, and clicking **Allow** in their browser once. When you reach
+restarting the Claude app once, and clicking **Allow** in their browser once. When you reach
 one, STOP, give one plain instruction, and wait.
 
 ### Ground rules for you (Claude)
@@ -39,7 +39,7 @@ one, STOP, give one plain instruction, and wait.
 ## Step 0 — Preflight (you do this)
 
 1. Confirm Node.js works: `node --version` (want v18+). If it's missing, the human needs to
-   install it from https://nodejs.org (LTS) and restart their terminal — that's a
+   install it from https://nodejs.org (LTS) and fully quit and reopen the Claude app — that's a
    🙋 HUMAN STEP; walk them through it plainly, then re-check.
 2. Confirm you're in their **website project** (their site's code should be here — look for
    the pages/site files and a git repo). If this folder looks empty or wrong, ask them to
@@ -67,11 +67,11 @@ Cloudflare plugin (skills + MCP server for live docs and deploy status). If eith
 it's already installed, that's fine — continue.
 
 After install, the plugin is registered but its tools are **not loaded into this session
-yet** — they only load when Claude Code starts up. That's Step 2.
+yet** — they only load when the Claude app starts up. That's Step 2.
 
 ---
 
-## Step 2 — 🙋 HUMAN STEP: RESTART Claude Code (required — don't skip)
+## Step 2 — 🙋 HUMAN STEP: RESTART the Claude app (required — don't skip)
 
 Tell the human, plainly:
 
@@ -81,7 +81,7 @@ Tell the human, plainly:
 > were — then say *continue the Cloudflare setup.*"
 
 Wait for them to restart and return. **You cannot do this step for them.** (If they start a
-brand-new chat instead, have them reopen the prior chat from the list of past chats on the left — or just
+brand-new chat instead, have them reopen the prior chat from the list of past chats on the left (clicking the Code tab first if it isn't there) — or just
 re-read this file and continue from Step 3.)
 
 > Claude, after the restart: re-read this file, confirm the plugin is enabled
@@ -168,14 +168,14 @@ class does that together.
 
 | What you see | What it means | What you do |
 |---|---|---|
-| Cloudflare tools/skills missing after install | **Session wasn't restarted** (most common) | This is Step 2 — the human must fully quit and reopen Claude Code in this folder. Plugins load only at startup. |
+| Cloudflare tools/skills missing after install | **Session wasn't restarted** (most common) | This is Step 2 — the human must fully quit and reopen the Claude app, then reopen this chat from the Code tab's list on the left. Plugins load only at startup. |
 | "In a non-interactive environment… set CLOUDFLARE_API_TOKEN" | Not logged in | Run `npx wrangler@latest login` (Step 3) and have them authorize in the browser. |
 | "Authentication error [code: 10000]" / "Unable to get membership roles" | Stale API token conflicting with browser login | `npx wrangler@latest logout`, clear `CLOUDFLARE_API_TOKEN` from env/`.env` files, `npx wrangler@latest login` fresh, approve **all** permissions. |
 | `npx wrangler` hangs or errors on first run | Downloading Wrangler on first use | Give it a few seconds + working internet. If it fails, `npm cache clean --force` and retry. |
 | `dig` shows non-Cloudflare nameservers | Nameserver switch not made or still propagating | Check the registrar setting was actually saved; propagation can take up to ~24h. Re-check later. |
 | Cloudflare dashboard shows domain "Pending" | Same as above — not settled yet | Wait; Cloudflare emails when Active. |
 | Site loops / SSL error after the move | Zone SSL/TLS mode is wrong for their host | Walk them through setting SSL/TLS mode to **Full (strict)** in the dashboard (Step 5.2). |
-| `node: command not found` | Node.js missing or terminal not restarted after install | Install LTS from https://nodejs.org, close and reopen the terminal, re-check. |
+| `node: command not found` | Node.js missing or terminal not restarted after install | Install LTS from https://nodejs.org, fully quit and reopen the Claude app, re-check. |
 
 ---
 

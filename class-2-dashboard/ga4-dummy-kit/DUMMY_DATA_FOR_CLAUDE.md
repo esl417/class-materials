@@ -1,7 +1,7 @@
 # GA4 Dummy Data — Instructions for Claude Code
 
-> **Human: you don't need to understand any of this.** Open Claude Code in your
-> dashboard project, give it this file, and say: **"Read this and do everything in it
+> **Human: you don't need to understand any of this.** Open your dashboard project in
+> the Claude app's Code tab, give it this file, and say: **"Read this and do everything in it
 > for me."** That's all.
 
 ---
@@ -66,7 +66,7 @@ it yourself.**
       - **Making a Supabase account / empty project** — they may already have one; ask
         first. If not, walk them through supabase.com → sign in → New project (save the
         DB password). This is theirs to do in the browser.
-      - **Restarting Claude Code** (the plugin's tools only load on restart) — see the
+      - **Restarting the Claude app** (the plugin's tools only load on restart) — see the
         restart handling just below; this is the step people get stuck on.
       - **Clicking "Authorize"** in the Supabase browser page (OAuth — no token to
         paste), choosing the project for this class.
@@ -80,7 +80,8 @@ it yourself.**
       > **https://classes.ericgrows.com/class-2-dashboard-build/prereqs.html#restart**
       >
       > In short: after it reopens, click **this** chat in the list of past chats on
-      > the left, and type **'continue the dummy-data setup.'**"
+      > the left (click the Code tab first if you don't see it), and type
+      > **'continue the dummy-data setup.'**"
 
    e. **After they restart and return**, re-check the MCP tools (they should now be
       present and authorized), finish any remaining setup-kit steps, then **continue
