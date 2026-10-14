@@ -22,20 +22,17 @@ buying one inside Cloudflare. Do that first, and confirm your site still loads n
    > handle all the setup yourself, and stop to tell me whenever you need me to click
    > something in my web browser."**
 
-3. Partway through, Claude will ask you to **fully quit and reopen Claude Code once** (the
-   Cloudflare tools only switch on after a restart). **This is the important part:** when
-   you reopen it, click the **🕐 clock icon at the top-right** of the Claude box to open
-   your **conversation history**, and pick the chat you were just in — that's how Claude
-   remembers where it was. Then say: **"continue the Cloudflare setup."**
+3. Partway through, Claude will ask you to **fully quit and reopen the Claude app once**
+   (the Cloudflare tools only switch on after a restart). **This is the important part:**
+   when you reopen it, click the chat you were just in from the **list of past chats on
+   the left** — that's how Claude remembers where it was. Then say: **"continue the
+   Cloudflare setup."**
 
 4. Near the end, a **Cloudflare page opens in your browser** — sign in and click
    **Allow** once. Claude handles everything else.
 
 > Three things you do by hand: **restart the app once**, **reopen the same chat from the
-> 🕐 history**, and **click Allow once.** That's all.
->
-> 💡 If the Claude box disappears after you reopen the app, just **click any file** in your
-> project on the left and it'll come right back.
+> list on the left**, and **click Allow once.** That's all.
 
 ## What this does
 

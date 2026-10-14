@@ -22,20 +22,17 @@ browser when you start.
    > handle all the setup yourself, and stop to tell me whenever you need me to click
    > something in my web browser."**
 
-3. Partway through, Claude will ask you to **fully quit and reopen Claude Code once** (the
-   Supabase tools only switch on after a restart). **This is the important part:** when you
-   reopen it, click the **🕐 clock icon at the top-right** of the Claude box to open your
-   **conversation history**, and pick the chat you were just in — that's how Claude
-   remembers where it was. Then say: **"continue the Supabase setup."**
+3. Partway through, Claude will ask you to **fully quit and reopen the Claude app once**
+   (the Supabase tools only switch on after a restart). **This is the important part:**
+   when you reopen it, click the chat you were just in from the **list of past chats on
+   the left** — that's how Claude remembers where it was. Then say: **"continue the
+   Supabase setup."**
 
 4. Near the end, you'll **click "Authorize" on a Supabase page in your browser once** and
    pick your project. Claude handles everything else.
 
 > Three things you do by hand: **restart the app once**, **reopen the same chat from the
-> 🕐 history**, and **click Authorize once.** That's all.
->
-> 💡 If the Claude box disappears after you reopen the app, just **click any file** in your
-> project on the left and it'll come right back.
+> list on the left**, and **click Authorize once.** That's all.
 
 ## What this does
 

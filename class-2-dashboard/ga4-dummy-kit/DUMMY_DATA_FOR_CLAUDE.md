@@ -73,16 +73,14 @@ it yourself.**
 
    d. **The restart hand-off (do this carefully — it's where students get lost).** When
       the setup kit tells you to have them restart, say something like:
-      > "Now I need you to fully **quit Claude Code and open it again** in this same
-      > folder — the Supabase tools only switch on after a restart. The one tricky part
+      > "Now I need you to fully **quit the Claude app (on a Mac, ⌘Q) and open it
+      > again** — the Supabase tools only switch on after a restart. The one tricky part
       > is getting back into *this* conversation so I remember where we are. Here's a
       > short visual walkthrough of exactly how — follow the slide on screen:
-      > **https://class-1-deck.vercel.app/class-2-dashboard-build/prereqs.html#restart**
+      > **https://classes.ericgrows.com/class-2-dashboard-build/prereqs.html#restart**
       >
-      > In short: after it reopens, click the **🕐 clock icon at the top-right** of the
-      > Claude box to open your conversation history, pick **this** chat, and type
-      > **'continue the dummy-data setup.'** (If the Claude panel vanishes, click any
-      > file on the left and it comes back.)"
+      > In short: after it reopens, click **this** chat in the list of past chats on
+      > the left, and type **'continue the dummy-data setup.'**"
 
    e. **After they restart and return**, re-check the MCP tools (they should now be
       present and authorized), finish any remaining setup-kit steps, then **continue

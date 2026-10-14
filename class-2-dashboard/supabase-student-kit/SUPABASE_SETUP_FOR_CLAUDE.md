@@ -83,20 +83,16 @@ session is restarted. This is expected, not a bug.
 Tell the human, plainly (and point them at the visual walkthrough — this is the step
 people get stuck on):
 
-> "I just installed the Supabase tools, but they only switch on when Claude Code restarts.
-> Please **fully quit Claude Code and open it again in this same folder.** When it reopens,
-> click the **🕐 clock icon at the top-right of the Claude box** to open your conversation
-> history, and pick *this* chat so I remember where we were — then say *continue the
-> Supabase setup.* Here's a short visual of exactly how to get back into this chat:
-> **https://class-1-deck.vercel.app/class-2-dashboard-build/prereqs.html#restart**"
+> "I just installed the Supabase tools, but they only switch on after a restart.
+> Please **fully quit the Claude app (on a Mac, ⌘Q) and open it again.** When it reopens,
+> click *this* chat in the **list of past chats on the left** so I remember where we
+> were — then say *continue the Supabase setup.* Here's a short visual of exactly how to get back into this chat:
+> **https://classes.ericgrows.com/class-2-dashboard-build/prereqs.html#restart**"
 
 Wait for them to restart and return. **You cannot do this step for them** — they must
 restart the app and reopen this conversation themselves. (If they start a brand-new chat
 instead, you'll have lost this context; in that case have them reopen the prior chat from
-the 🕐 history, or just re-read this file and continue from Step 4.)
-
-> If they say the Claude box / Anthropic logo vanished after reopening the app, tell them:
-> *"Just click any file in your project on the left — the Claude panel comes right back."*
+the list of past chats on the left, or just re-read this file and continue from Step 4.)
 
 > Claude, after the restart: re-read this file, confirm the plugin is enabled
 > (`claude plugin list` shows `supabase ... ✔ enabled`), and confirm the MCP server now

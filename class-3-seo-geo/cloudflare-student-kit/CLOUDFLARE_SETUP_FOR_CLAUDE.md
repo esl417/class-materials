@@ -75,18 +75,14 @@ yet** — they only load when Claude Code starts up. That's Step 2.
 
 Tell the human, plainly:
 
-> "I just installed the Cloudflare tools, but they only switch on when Claude Code
-> restarts. Please **fully quit Claude Code and open it again in this same folder.** When
-> it reopens, click the **🕐 clock icon at the top-right of the Claude box** to open your
-> conversation history, and pick *this* chat so I remember where we were — then say
-> *continue the Cloudflare setup.*"
+> "I just installed the Cloudflare tools, but they only switch on after a restart.
+> Please **fully quit the Claude app (on a Mac, ⌘Q) and open it again.** When it reopens,
+> click *this* chat in the **list of past chats on the left** so I remember where we
+> were — then say *continue the Cloudflare setup.*"
 
 Wait for them to restart and return. **You cannot do this step for them.** (If they start a
-brand-new chat instead, have them reopen the prior chat from the 🕐 history — or just
+brand-new chat instead, have them reopen the prior chat from the list of past chats on the left — or just
 re-read this file and continue from Step 3.)
-
-> If they say the Claude box / Anthropic logo vanished after reopening the app, tell them:
-> *"Just click any file in your project on the left — the Claude panel comes right back."*
 
 > Claude, after the restart: re-read this file, confirm the plugin is enabled
 > (`claude plugin list` shows the cloudflare plugin ✔ enabled), then continue to Step 3.
