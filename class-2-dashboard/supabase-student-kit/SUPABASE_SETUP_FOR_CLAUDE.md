@@ -10,23 +10,16 @@
 
 You are connecting a **completely non-technical person's** own Supabase project to
 yourself (Claude Code) so that **you** can build their database — create tables, run
-migrations, deploy edge functions — directly. You do this by installing the **official
-Supabase plugin**, which gives you both the Supabase MCP server (the live connection) and
-Supabase skills (best-practice knowledge), then having the human approve access with a
-single browser click.
+migrations, deploy edge functions — directly. Two pieces make that work:
 
-**Your job is to do everything yourself.** The human cannot use a terminal or read code.
-**Never ask them to run a command or edit a file.** The ONLY thing they do is **click
-"Authorize" in their browser once**. That moment is marked **🙋 HUMAN STEP**. When you
-reach it, STOP, give one plain instruction, and wait.
+1. **The Supabase connector** — the live connection (Supabase's MCP server). The human
+   adds it in the Claude app with a few clicks and approves access in their browser.
+2. **Supabase's agent skills** — Supabase's own best-practice instructions for working in
+   a Supabase project. You install these yourself.
 
-### What you'll end up with (verified flow)
-
-1. The `supabase` plugin installed → bundles the MCP server + skills.
-2. The Supabase MCP server **authenticated** via the human's browser (OAuth — no token to
-   copy or paste).
-3. Write-capable MCP tools available: `list_tables`, `execute_sql`, `apply_migration`,
-   `deploy_edge_function`, and more — you call these directly, no terminal.
+**Your job is to do everything you can yourself.** The human cannot use a terminal or read
+code. **Never ask them to run a command or edit a file.** The only things they do are
+marked **🙋 HUMAN STEP**. When you reach one, STOP, give one plain instruction, and wait.
 
 ### Ground rules for you (Claude)
 
@@ -34,7 +27,7 @@ reach it, STOP, give one plain instruction, and wait.
   sentence about what's happening.
 - One instruction at a time. Reassure them — this is intimidating for them, routine for
   you.
-- During the browser authorization, the human chooses **which Supabase organization /
+- During the browser sign-in, the human chooses **which Supabase organization /
   project** to grant. Make sure they pick the project for this class.
 
 ---
@@ -51,71 +44,52 @@ Wait until they confirm a project exists.
 
 ---
 
-## Step 2 — Install the Supabase plugin (you do this)
+## Step 2 — Install Supabase's agent skills (you do this)
 
 Run:
 
 ```bash
-claude plugin install supabase@claude-plugins-official
+npx skills add supabase/agent-skills
 ```
 
-This installs the official Supabase plugin (skills + MCP server) from the pre-configured
-official marketplace — no marketplace setup needed. If it reports it's already installed,
-that's fine.
+Install them **globally, for Claude Code** — if the installer asks which agent, choose
+Claude Code; if it asks project or global, choose global. Node and npx are already on
+their computer from the Class 1 setup.
 
-> If for any reason that marketplace isn't available, add it first:
-> `claude plugin marketplace add anthropics/claude-plugins-official` then re-run the
-> install. As a last resort you can register the MCP server directly without the plugin:
-> `claude mcp add --transport http supabase "https://mcp.supabase.com/mcp"` — but prefer
-> the plugin, since it also gives you the Supabase skills.
-
-After install, the plugin is registered but its tools are **not loaded into this session
-yet** — and that's the #1 thing that trips people up. Read Step 3 carefully.
+If the install fails, don't stop: say one friendly sentence, carry on with Step 3, and
+mention at the end that the skills can be added later. The connector is what the class
+depends on; the skills make your work better.
 
 ---
 
-## Step 3 — 🙋 HUMAN STEP: RESTART the Claude app (required — don't skip)
+## Step 3 — 🙋 HUMAN STEP: add the Supabase connector
 
-**A plugin's tools only load when the Claude app starts up.** Because you just installed the
-plugin mid-session, its Supabase tools and its entry in Connectors will NOT appear until the
-session is restarted. This is expected, not a bug.
+Tell the human, plainly:
 
-Tell the human, plainly (and point them at the visual walkthrough — this is the step
-people get stuck on):
+> "Now let's connect your Supabase. Click **+** next to the message box, choose
+> **Connectors → Manage connectors**, click the **Discover** tab at the top, and search
+> **Supabase**. Add it and sign in. A Supabase page opens in your browser — sign in if
+> asked, **choose the project for this class**, and click **Authorize**. Tell me when it
+> says connected."
 
-> "I just installed the Supabase tools, but they only switch on after a restart.
-> Please **fully quit the Claude app (on a Mac, ⌘Q) and open it again.** When it reopens,
-> click *this* chat in the **list of past chats on the left** so I remember where we
-> were — then say *continue the Supabase setup.* Here's a short visual of exactly how to get back into this chat:
-> **https://classes.ericgrows.com/class-2-dashboard-build/prereqs.html#restart**"
-
-Wait for them to restart and return. **You cannot do this step for them** — they must
-restart the app and reopen this conversation themselves. (If they start a brand-new chat
-instead, you'll have lost this context; in that case have them reopen the prior chat from
-the list of past chats on the left (if it isn't there, have them click the Code tab at
-the top first), or just re-read this file and continue from Step 4.)
-
-> Claude, after the restart: re-read this file, confirm the plugin is enabled
-> (`claude plugin list` shows `supabase ... ✔ enabled`), and confirm the MCP server now
-> appears (`claude mcp list` shows `plugin:supabase:supabase`). Then continue to Step 4.
+Wait for them. The connector itself shows them anything else it needs.
 
 ---
 
-## Step 4 — 🙋 HUMAN STEP: authorize Supabase in the browser
+## Step 4 — Confirm you can see it (you do this)
 
-The Supabase MCP server uses a secure browser sign-in (OAuth) — there is **no token to
-copy or paste** (this is by design; the sign-in must be started by the app, not a link).
+Check that the Supabase tools are now available to you (for example `list_tables`,
+`execute_sql`, `apply_migration`, `deploy_edge_function`).
 
-Tell the human to open the connection menu and authenticate:
+**If you can't see them yet**, the connector was added after this session started. Tell
+the human:
 
-> "Now let's connect to your Supabase. Please click **+** next to the message box, open
-> **Connectors**, pick **`supabase`**, and sign in. A Supabase page
-> will open in your browser — sign in if asked, **choose the project for this class**, and
-> click **Authorize**. Tell me when it says connected."
+> "One more click: start a fresh session so I can see the new connection. Click
+> **+ New session** (⌘N on a Mac, Ctrl+N on Windows), choose **Local → Select folder**,
+> pick your **dashboard** folder again, and type **'continue the Supabase setup.'**"
 
-Wait for them. Then confirm the connection is live: `claude mcp list` should show the
-Supabase server **without** "Needs authentication", and the Supabase MCP tools should be
-available to you.
+In the new session, this file is still in the project folder: re-read it and continue
+from Step 5.
 
 ---
 
@@ -138,8 +112,8 @@ Then tell the human, plainly:
 
 ## Step 6 — How you'll build things in class (reference for you)
 
-Once connected, prefer the MCP tools over the terminal. The bundled **`supabase` skill**
-fires automatically for Supabase work — follow it; it has the current best practices.
+Once connected, prefer the connector's tools over the terminal. If Supabase's agent skills
+are installed, follow them for Supabase work — they have the current best practices.
 
 - **Schema change / new table** → write SQL and call `apply_migration` (records a proper
   timestamped migration). Use `execute_sql` for quick iteration, then capture a clean
@@ -148,8 +122,7 @@ fires automatically for Supabase work — follow it; it has the current best pra
 - **Edge function** → `deploy_edge_function` with the name + code.
 - **Extensions / pg_cron / scheduled jobs** → `apply_migration` with the
   `create extension ...` / `cron.schedule(...)` SQL (pg_cron is available on Supabase).
-- For auth/RLS/storage specifics, lean on the `supabase` and
-  `supabase-postgres-best-practices` skills the plugin installed.
+- For auth/RLS/storage specifics, lean on the Supabase skills.
 
 Keep migrations as the source of truth so the student's project stays reproducible.
 
@@ -159,19 +132,19 @@ Keep migrations as the source of truth so the student's project stays reproducib
 
 | What you see | What it means | What you do |
 |---|---|---|
-| Connectors doesn't list supabase, or tools missing after install | **Session wasn't restarted** (most common) | This is Step 3 — the human must fully quit and reopen the Claude app, then reopen this chat from the list on the left. Plugins load only at startup. |
-| `claude plugin list` shows supabase but no `✔ enabled` | Plugin installed but disabled | Run `claude plugin enable supabase@claude-plugins-official`, then restart the session. |
-| Server says "Needs authentication" | OAuth (Step 3) not completed | Trigger the auth flow again; make sure they clicked **Authorize** and picked the right project. |
-| Authorized the wrong project/org | Picked wrong one in the browser | Re-run the auth flow and choose the correct organization/project. |
-| Writes rejected / only reads work | Connected in read-only mode | Re-authorize; ensure the project URL has no `read_only=true`. The plugin's default is write-capable. |
-| `plugin install` can't find it | Official marketplace not registered | `claude plugin marketplace add anthropics/claude-plugins-official`, then re-run install. |
-| `apply_migration` fails on schema SQL | SQL error, not access | Read the DB error, fix the SQL, retry. The bundled skill has Postgres guidance. |
+| Supabase tools missing after they added the connector | Connector was added mid-session | Step 4 — have them start a **+ New session** on the dashboard folder and say "continue the Supabase setup." |
+| They can't find Supabase in Connectors | Looking in the wrong list | Walk them to **+ → Connectors → Manage connectors → Discover** and search Supabase. |
+| Connector says it needs sign-in | Browser approval not finished | Have them open the connector again, sign in, pick the class project, and click **Authorize**. |
+| Authorized the wrong project/org | Picked wrong one in the browser | Have them sign in to the connector again and choose the correct organization/project. |
+| Writes rejected / only reads work | Connected in read-only mode | Have them reconnect and allow write access. |
+| `npx skills add` fails | Network or Node issue | Not a blocker — finish the connection, then retry the skills install at the end. |
+| `apply_migration` fails on schema SQL | SQL error, not access | Read the DB error, fix the SQL, retry. |
 
 ---
 
 ## What "done" looks like
 
-- The `supabase` plugin is installed (skills + MCP).
-- The Supabase MCP server is **authenticated** and scoped to **their** project.
+- The **Supabase connector** is added and signed in, scoped to **their** project.
+- Supabase's agent skills are installed globally (or you've told them they can be added later).
 - `list_tables` works, and `apply_migration` / `deploy_edge_function` are available.
 - You never asked them to type a command or read code; you paused only at the 🙋 steps.

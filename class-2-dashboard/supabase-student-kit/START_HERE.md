@@ -22,19 +22,16 @@ browser when you start.
    > handle all the setup yourself, and stop to tell me whenever you need me to click
    > something in my web browser."**
 
-3. Partway through, Claude will ask you to **fully quit and reopen the Claude app once**
-   (the Supabase tools only switch on after a restart). **This is the important part:**
-   when you reopen it, click the chat you were just in from the **list of past chats on
-   the left** — that's how Claude remembers where it was. Then say: **"continue the
-   Supabase setup."**
+3. Partway through, Claude will ask you to **add the Supabase connector**: click **+**
+   next to the message box, choose **Connectors → Manage connectors**, click the
+   **Discover** tab at the top, search **Supabase**, add it, and sign in.
 
-4. Near the end, you'll **click "Authorize" on a Supabase page in your browser once** and
-   pick your project. Claude handles everything else.
+4. A Supabase page opens in your browser. Sign in if asked, **pick your class project**,
+   and click **Authorize**. Then tell Claude you're done.
 
-> Three things you do by hand: **restart the app once**, **reopen the same chat from the
-> list on the left**, and **click Authorize once.** That's all.
->
-> 💡 Don't see your chat after reopening? Click the **Code** tab at the top first.
+> If Claude can't see Supabase yet, it will ask you to start a fresh session: click
+> **+ New session**, choose **Local → Select folder**, pick your dashboard folder, and
+> type **"continue the Supabase setup."**
 
 ## What this does
 

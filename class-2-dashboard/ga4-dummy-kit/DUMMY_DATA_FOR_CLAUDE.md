@@ -61,32 +61,24 @@ it yourself.**
       and only then fall back to asking the human to paste the setup-kit prompt.
 
    c. **Run that setup runbook end to end**, doing every step you can do yourself
-      (installing the `supabase` plugin, wiring the MCP server). Pause ONLY at the
+      (installing Supabase's agent skills). Pause ONLY at the
       genuine human moments, one at a time, and wait each time:
       - **Making a Supabase account / empty project** — they may already have one; ask
         first. If not, walk them through supabase.com → sign in → New project (save the
         DB password). This is theirs to do in the browser.
-      - **Restarting the Claude app** (the plugin's tools only load on restart) — see the
-        restart handling just below; this is the step people get stuck on.
-      - **Clicking "Authorize"** in the Supabase browser page (OAuth — no token to
-        paste), choosing the project for this class.
+      - **Adding the Supabase connector** (+ → Connectors → Manage connectors →
+        Discover → search Supabase → add and sign in), then clicking **Authorize** in
+        the Supabase browser page and choosing the project for this class.
 
-   d. **The restart hand-off (do this carefully — it's where students get lost).** When
-      the setup kit tells you to have them restart, say something like:
-      > "Now I need you to fully **quit the Claude app (on a Mac, ⌘Q) and open it
-      > again** — the Supabase tools only switch on after a restart. The one tricky part
-      > is getting back into *this* conversation so I remember where we are. Here's a
-      > short visual walkthrough of exactly how — follow the slide on screen:
-      > **https://classes.ericgrows.com/class-2-dashboard-build/prereqs.html#restart**
-      >
-      > In short: after it reopens, click **this** chat in the list of past chats on
-      > the left (click the Code tab first if you don't see it), and type
-      > **'continue the dummy-data setup.'**"
+   d. **If you can't see the Supabase tools after they add the connector,** the
+      connector was added mid-session. Ask them to start a fresh session: **+ New
+      session**, **Local → Select folder**, pick the dashboard folder, and type
+      **'continue the dummy-data setup.'** This file and the setup kit are in the
+      project folder — re-read both and pick up where you left off.
 
-   e. **After they restart and return**, re-check the MCP tools (they should now be
-      present and authorized), finish any remaining setup-kit steps, then **continue
-      straight into Step 1 of THIS kit** — build the tables and seed the data. Don't make
-      them re-paste the dummy-data prompt; you're already on it.
+   e. **Once the Supabase tools are available**, finish any remaining setup-kit steps,
+      then **continue straight into Step 1 of THIS kit** — build the tables and seed the
+      data. Don't make them re-paste the dummy-data prompt; you're already on it.
 
    Throughout: never show raw errors, never ask them to run terminal commands or edit
    files, and don't spin — if a step needs a human click, ask for that one click and
