@@ -13,7 +13,7 @@ do `supabase-student-kit/START_HERE.md` first, then come back here.
 
 ## What to do
 
-1. Open your **dashboard project** in VS Code and open **Claude Code** in it.
+1. Open your **dashboard project** in the Claude app's **Code** tab.
 2. Copy/paste this message to Claude:
 
    > **"Grab the GA4 dummy-data kit from https://github.com/esl417/class-materials (the

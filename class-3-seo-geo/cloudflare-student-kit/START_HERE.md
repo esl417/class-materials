@@ -12,8 +12,8 @@ buying one inside Cloudflare. Do that first, and confirm your site still loads n
 
 ## What to do
 
-1. Open your **website project** in VS Code (the same folder from Class 1 — where your
-   site lives) and open **Claude Code** in it.
+1. Open your **website project** in the Claude app's **Code** tab (the same folder from
+   Class 1 — where your site lives).
 2. Copy/paste this message to Claude:
 
    > **"Grab the Cloudflare setup kit from https://github.com/esl417/class-materials (the
