@@ -77,7 +77,7 @@ yet** — and that's the #1 thing that trips people up. Read Step 3 carefully.
 ## Step 3 — 🙋 HUMAN STEP: RESTART the Claude app (required — don't skip)
 
 **A plugin's tools only load when the Claude app starts up.** Because you just installed the
-plugin mid-session, its Supabase tools and the `/mcp` connection will NOT appear until the
+plugin mid-session, its Supabase tools and its entry in Connectors will NOT appear until the
 session is restarted. This is expected, not a bug.
 
 Tell the human, plainly (and point them at the visual walkthrough — this is the step
@@ -108,8 +108,8 @@ copy or paste** (this is by design; the sign-in must be started by the app, not 
 
 Tell the human to open the connection menu and authenticate:
 
-> "Now let's connect to your Supabase. Please type **`/mcp`** and press enter, pick
-> **`supabase`** from the list, and choose **Authenticate** (or Login). A Supabase page
+> "Now let's connect to your Supabase. Please click **+** next to the message box, open
+> **Connectors**, pick **`supabase`**, and sign in. A Supabase page
 > will open in your browser — sign in if asked, **choose the project for this class**, and
 > click **Authorize**. Tell me when it says connected."
 
@@ -159,7 +159,7 @@ Keep migrations as the source of truth so the student's project stays reproducib
 
 | What you see | What it means | What you do |
 |---|---|---|
-| `/mcp` doesn't list supabase, or tools missing after install | **Session wasn't restarted** (most common) | This is Step 3 — the human must fully quit and reopen the Claude app, then reopen this chat from the list on the left. Plugins load only at startup. |
+| Connectors doesn't list supabase, or tools missing after install | **Session wasn't restarted** (most common) | This is Step 3 — the human must fully quit and reopen the Claude app, then reopen this chat from the list on the left. Plugins load only at startup. |
 | `claude plugin list` shows supabase but no `✔ enabled` | Plugin installed but disabled | Run `claude plugin enable supabase@claude-plugins-official`, then restart the session. |
 | Server says "Needs authentication" | OAuth (Step 3) not completed | Trigger the auth flow again; make sure they clicked **Authorize** and picked the right project. |
 | Authorized the wrong project/org | Picked wrong one in the browser | Re-run the auth flow and choose the correct organization/project. |
